@@ -1,0 +1,27 @@
+.table {
+
+}
+
+.table-header {
+    text-align: center;
+    padding: 10px 10px 10px 10px;
+    background-color: wheat;
+    font-weight: bold;
+    display: flex;
+}
+
+.bank-name {
+    flex: 50%;
+}
+
+.bank-eachvalue {
+    flex: 10%;
+}
+
+.bank-currency {
+    flex: 20%;
+}
+
+.bank-total {
+    flex: 20%;
+}

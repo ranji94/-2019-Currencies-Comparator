@@ -1,0 +1,26 @@
+.item-container {
+    text-align: center;
+    display: flex;
+    border: #f1f8e9 solid 2px;
+    border-radius: 3px;
+    background-color: #5c6bc0;
+    color: white;
+    padding: 10px 10px 10px 10px;
+    margin-top: 5px;
+}
+
+.bank-name {
+    flex: 50%;
+}
+
+.bank-currency {
+    flex: 20%;
+}
+
+.bank-eachvalue {
+    flex: 10%;
+}
+
+.bank-total {
+    flex: 20%;
+}
