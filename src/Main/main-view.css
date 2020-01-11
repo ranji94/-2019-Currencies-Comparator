@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
+
+.title
+{
+    text-align: center;
+    color: white;
+    background-color: #f44336;
+    padding: 15px 15px 15px 15px;
+    font-size: x-large;
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 3px;
+}
+
+.app-container
+{
+    border: #c5cae9 solid 2px;
+    border-radius: 5px;
+    background-color: #fffde7;
+    margin-left: 120px;
+    margin-right: 120px;
+    margin-top: 50px;
+    padding: 50px 60px 50px 60px;
+}
