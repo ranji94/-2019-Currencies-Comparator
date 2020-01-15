@@ -34,8 +34,8 @@ class Menu extends React.Component {
                             onChange={handleChange}
                         >
                             <MenuItem value={'EUR'}>€</MenuItem>
-                            <MenuItem value={'PLN'}>PLN</MenuItem>
-                            <MenuItem value={'USD'}>USD</MenuItem>
+                            <MenuItem value={'CHF'}>CHF</MenuItem>
+                            <MenuItem value={'USD'}>$</MenuItem>
                         </Select>
                         </FormControl>
                     </div>
@@ -54,7 +54,8 @@ class Menu extends React.Component {
     }
 
     getComparedData() {
-        console.log(this.state.currency, this.state.count)
+        const { getData } = this.props
+        getData(this.state.currency, this.state.count)
     }
 }
 

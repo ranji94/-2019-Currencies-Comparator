@@ -1,13 +1,18 @@
 import { connect } from 'react-redux'
-import { banksFetched } from "../ServerData/actions";
-import MainView from "./main-view";
+import * as banks from '../ServerData/actions/banks-actions'
+import * as currency from '../ServerData/actions/currency-action'
+import MainView from "./main-view"
+
 
 const mapStateToProps = (state) => {
-    return {
-        banks: state.banks
-    }
-}
+    return state;
+  };
 
-const mapDispatchToProps = { banksFetched }
+const mapDispatchToProps = (dispatch) => {
+    return {
+      getData: (currency, count) => dispatch(banks.getData(currency, count)),
+      // setCurrency: () => dispatch(currency.setCurrency(currency))
+    }
+  };
 
 export const MainContainer = connect(mapStateToProps, mapDispatchToProps)(MainView)
