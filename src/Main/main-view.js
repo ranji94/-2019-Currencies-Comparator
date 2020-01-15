@@ -9,10 +9,10 @@ class MainView extends React.Component {
             <div>
             <div className={'title'}>Porównywarka kursów walut</div>
                 <div className={'app-container'}>
-                    <Menu />
+                    <Menu getData={this.props.getData} />
                 </div>
                 <div className={'app-container'}>
-                    <CurrenciesTable />
+                    <CurrenciesTable banks={this.props.banks}/>
                 </div>
             </div>
         )

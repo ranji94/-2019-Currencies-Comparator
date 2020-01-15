@@ -1,7 +1,6 @@
 import React from 'react'
 import './currencies-table.css'
 import CurrenciesItem from "./currencies-item";
-import { getBanksArray } from '../ServerData/constants'
 
 class CurrenciesTable extends React.Component {
     render() {
@@ -19,11 +18,21 @@ class CurrenciesTable extends React.Component {
     }
 
     getItems() {
+        const { banks } = this.props
         const items = []
+        const banksData = Object.assign({}, banks)
+        console.log(banksData.rates)
 
-        getBanksArray().forEach(bank => {
-            items.push(<CurrenciesItem name={bank.name} currency={bank.currency} eachvalue={bank.value} total={bank.total} />)
-        })
+        if(typeof banksData.rates === 'undefined') {
+            console.warn('TABLICA NIEZDEFINOWANIA')
+        } 
+        else {
+            banksData.rates.forEach(myFunction); 
+            function myFunction(item, index) 
+            { 
+                items.push(<CurrenciesItem key={index} name={item.no} currency={item.effectiveDate} eachvalue={item.mid} total={0} />)
+            }
+        }
 
         return items
     }
