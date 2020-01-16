@@ -18,7 +18,7 @@ class CurrenciesTable extends React.Component {
     }
 
     getItems() {
-        const { banks } = this.props
+        const { banks, currency, count } = this.props
         const items = []
         const banksData = Object.assign({}, banks)
         console.log(banksData.rates)
@@ -30,7 +30,8 @@ class CurrenciesTable extends React.Component {
             banksData.rates.forEach(myFunction); 
             function myFunction(item, index) 
             { 
-                items.push(<CurrenciesItem key={index} name={item.no} currency={item.effectiveDate} eachvalue={item.mid} total={0} />)
+                const rounded = Math.round(item.mid * count * 100)/100
+                items.push(<CurrenciesItem key={index} name={item.no} currency={currency} eachvalue={item.mid} total={rounded + ' PLN'} />)
             }
         }
 
