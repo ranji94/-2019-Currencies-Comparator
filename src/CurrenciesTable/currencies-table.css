@@ -1,5 +1,7 @@
-.table {
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=swap');
 
+.table {
+    font-family: 'Noto Sans', sans-serif;
 }
 
 .table-header {
@@ -8,6 +10,23 @@
     background-color: wheat;
     font-weight: bold;
     display: flex;
+}
+
+.warning {
+    background-color: #fbc02d;
+    color: white;
+    letter-spacing: 3px;
+    font-size: larger;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    transition: background-color 0.2s;
+    margin-top: 5px;
+}
+
+.warning:hover {
+    background-color: #eab01c;
 }
 
 .bank-name {
