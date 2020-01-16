@@ -4,8 +4,8 @@ import Select from '@material-ui/core/Select'
 import MenuItem from "@material-ui/core/MenuItem";
 import TextField from '@material-ui/core/TextField'
 import FormControl from "@material-ui/core/FormControl";
+import { currencies } from '../constants'
 import './menu.css'
-
 
 class Menu extends React.Component {
     constructor() {
@@ -33,9 +33,7 @@ class Menu extends React.Component {
                             value={this.state.currency}
                             onChange={handleChange}
                         >
-                            <MenuItem value={'EUR'}>€</MenuItem>
-                            <MenuItem value={'CHF'}>CHF</MenuItem>
-                            <MenuItem value={'USD'}>$</MenuItem>
+                            {this.getMenuItems()}
                         </Select>
                         </FormControl>
                     </div>
@@ -49,13 +47,23 @@ class Menu extends React.Component {
         )
     }
 
+    getMenuItems() {
+        const items = []
+        currencies.forEach((item) => {
+        items.push(<MenuItem value={item}>{item}</MenuItem>)
+        })
+        return items
+    }
+
     handleCountChange(event) {
         this.setState({ count: event.target.value })
     }
 
-    getComparedData() {
+    getComparedData = () => {
         const { getData } = this.props
         getData(this.state.currency, this.state.count)
+        this.props.currencyCallback(this.state.currency)
+        this.props.countCallback(this.state.count)
     }
 }
 

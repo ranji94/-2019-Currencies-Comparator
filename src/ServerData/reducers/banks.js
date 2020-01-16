@@ -6,7 +6,7 @@ export const banks = (state = [], action) => {
     case actions.GET_DATA_REQUESTED:
       return { ...state, isLoading: true };
     case actions.GET_DATA_DONE:
-      return { ...state, isLoading: false, banks: action.payload };
+      return { ...state, isLoading: false, banks: action.payload  };
     case actions.GET_DATA_FAILED:
       return { ...state, isLoading: false, isError: true }
     default:

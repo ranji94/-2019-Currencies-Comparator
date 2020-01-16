@@ -28,7 +28,7 @@ export function getData(currency = 'USD', count = '1') {
   return dispatch => {
     dispatch(getDataRequested(currency, count));
 
-    fetch(API_ADDRESS + currency + '/last/'+ count + API_SUFFIX)
+    fetch(API_ADDRESS + currency + '/last/'+ 20 + API_SUFFIX)
       .then(response => response.json())
       .then(data => {
         dispatch(getDataDone(data));
