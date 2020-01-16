@@ -2,6 +2,7 @@ import React from 'react'
 import './main-view.css'
 import Menu from '../Menu/menu'
 import CurrenciesTable from "../CurrenciesTable/currencies-table";
+import EuroIcon from '@material-ui/icons/Euro';
 
 class MainView extends React.Component {
     constructor(props) {
@@ -12,7 +13,7 @@ class MainView extends React.Component {
     render() {
         return (
             <div>
-            <div className={'title'}>Porównywarka kursów walut</div>
+            <div className={'title'}>Porównywarka kursów walut <EuroIcon style={{ fontSize: 20 }}/></div>
                 <div className={'app-container'}>
                     <Menu getData={this.props.getData} currencyCallback={this.setCurrency} countCallback={this.setCount}/>
                 </div>

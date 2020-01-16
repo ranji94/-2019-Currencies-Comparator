@@ -1,20 +1,42 @@
 import React from 'react'
 import './currencies-table.css'
 import CurrenciesItem from "./currencies-item";
+import WarningRoundedIcon from '@material-ui/icons/WarningRounded';
+import AccountBalanceTwoToneIcon from '@material-ui/icons/AccountBalanceTwoTone';
+import MoneyIcon from '@material-ui/icons/Money';
+import EuroIcon from '@material-ui/icons/Euro';
+import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
 
 class CurrenciesTable extends React.Component {
     render() {
         return(
             <div className={'table'}>
                     <div className={'table-header'}>
-                        <div className={'bank-name'}>Nazwa banku</div>
-                        <div className={'bank-currency'}>Waluta</div>
-                        <div className={'bank-eachvalue'}>Kurs</div>
-                        <div className={'bank-total'}>Całkowita suma</div>
+                        <div className={'bank-name'}>Nazwa banku <AccountBalanceTwoToneIcon /></div>
+                        <div className={'bank-currency'}>Waluta <EuroIcon /></div>
+                        <div className={'bank-eachvalue'}>Kurs <MoneyIcon /></div>
+                        <div className={'bank-total'}>Całkowita suma <AccountBalanceWalletIcon /></div>
                     </div>
-                    { this.getItems() }
+                    { 
+                        this.isValidData() 
+                        ?
+                        this.getItems() 
+                        :
+                        this.getWarningMessage()
+                    }
             </div>
         )
+    }
+
+    getWarningMessage() {
+        return (<div className={'warning'}><WarningRoundedIcon style={{ fontSize: 50 }}/> Wprowadź poprawną ilość i walutę!</div>)
+    }
+
+    isValidData() {
+        const { currency, count } = this.props
+        console.warn(currency)
+        if(typeof currency === 'undefined' || currency === null  || count <= 0 || typeof count ==='undefined') return false
+        else return true
     }
 
     getItems() {
