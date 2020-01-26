@@ -6,6 +6,7 @@ import AccountBalanceTwoToneIcon from '@material-ui/icons/AccountBalanceTwoTone'
 import MoneyIcon from '@material-ui/icons/Money';
 import EuroIcon from '@material-ui/icons/Euro';
 import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
+import '../Lib/animate.css'
 
 class CurrenciesTable extends React.Component {
     render() {
@@ -17,29 +18,23 @@ class CurrenciesTable extends React.Component {
                         <div className={'bank-eachvalue'}>Kurs <MoneyIcon /></div>
                         <div className={'bank-total'}>Całkowita suma <AccountBalanceWalletIcon /></div>
                     </div>
-                    { 
-                        this.isValidData() 
-                        ?
-                        this.getItems() 
-                        :
-                        this.getWarningMessage()
-                    }
+                    { this.getItems() }
             </div>
         )
     }
 
-    getWarningMessage() {
+    getWarningMessage () {
         return (<div className={'warning'}><WarningRoundedIcon style={{ fontSize: 50 }}/> Wprowadź poprawną ilość i walutę!</div>)
     }
 
-    isValidData() {
+    isValidData () {
         const { currency, count } = this.props
         console.warn(currency)
-        if(typeof currency === 'undefined' || currency === null  || count <= 0 || typeof count ==='undefined') return false
+        if(typeof currency === 'undefined' || currency === null  || count <= 0 || typeof count ==='undefined' ) return false
         else return true
     }
 
-    getItems() {
+    getItems () {
         const { banks, currency, count } = this.props
         const items = []
         const banksData = Object.assign({}, banks)
@@ -57,7 +52,14 @@ class CurrenciesTable extends React.Component {
             }
         }
 
-        return items
+        if (this.isValidData())
+        {
+            return items
+        }
+        else
+        {
+            return this.getWarningMessage()
+        }
     }
 }
 

@@ -62,6 +62,7 @@ class Menu extends React.Component {
         getData(this.state.currency, this.state.count)
         this.props.currencyCallback(this.state.currency)
         this.props.countCallback(this.state.count)
+        this.props.collapseCallback()
     }
 }
 

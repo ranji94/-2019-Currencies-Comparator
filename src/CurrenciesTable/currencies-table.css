@@ -13,7 +13,8 @@
 }
 
 .warning {
-    background-color: #fbc02d;
+    background-color: #ff9800;
+    border-radius: 8px;
     color: white;
     letter-spacing: 3px;
     font-size: larger;
