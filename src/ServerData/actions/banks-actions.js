@@ -1,8 +1,7 @@
 export const GET_DATA_REQUESTED = 'GET_DATA_REQUESTED';
 export const GET_DATA_DONE = 'GET_DATA_DONE';
 export const GET_DATA_FAILED = 'GET_DATA_FAILED';
-const API_ADDRESS = 'http://api.nbp.pl/api/exchangerates/rates/a/';
-const API_SUFFIX = '/?format=json'
+const API_ADDRESS = 'http://localhost:8081/';
 
 export function getDataRequested() {
   return {
@@ -28,7 +27,7 @@ export function getData(currency = 'USD', count = '1') {
   return dispatch => {
     dispatch(getDataRequested(currency, count));
 
-    fetch(API_ADDRESS + currency + '/last/'+ 20 + API_SUFFIX)
+    fetch(API_ADDRESS + currency)
       .then(response => response.json())
       .then(data => {
         dispatch(getDataDone(data));
