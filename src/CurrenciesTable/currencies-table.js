@@ -37,18 +37,19 @@ class CurrenciesTable extends React.Component {
     getItems () {
         const { banks, currency, count } = this.props
         const items = []
-        const banksData = Object.assign({}, banks)
-        console.log(banksData.rates)
 
-        if(typeof banksData.rates === 'undefined') {
+        console.log(banks)
+
+        if(typeof banks === 'undefined') {
             console.warn('TABLICA NIEZDEFINOWANIA')
         } 
         else {
-            banksData.rates.forEach(myFunction); 
+            banks.forEach(myFunction); 
             function myFunction(item, index) 
             { 
-                const rounded = Math.round(item.mid * count * 100)/100
-                items.push(<CurrenciesItem key={index} name={item.no} currency={currency} eachvalue={item.mid} total={rounded + ' PLN'} />)
+                const totalRounded = Math.round(item.rate * count * 100)/100
+                const eachRounded = Math.round(item.rate * 100)/100
+                items.push(<CurrenciesItem key={index} name={item.source} currency={currency} eachvalue={eachRounded} total={totalRounded + ' PLN'} />)
             }
         }
 
